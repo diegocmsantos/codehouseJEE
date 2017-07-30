@@ -1,10 +1,18 @@
 package br.com.codehouseJEE.models;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String title;
+
+    @Lob
     private String description;
     private BigDecimal price;
     private Integer numberOfPages;

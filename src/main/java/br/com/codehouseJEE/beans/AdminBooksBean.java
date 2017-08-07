@@ -26,7 +26,7 @@ public class AdminBooksBean {
     private AuthorDAO authorDAO;
 
     @Transactional
-    public void save() {
+    public String save() {
 
         for(Integer authorId : authorsId){
             book.getAuthors().add(new Author(authorId));
@@ -36,8 +36,7 @@ public class AdminBooksBean {
 
         System.out.println("book saved: " + book);
 
-        this.book = new Book();
-        this.authorsId = new ArrayList<>();
+        return "/books/list?faces-redirect=true";
     }
 
     public Book getBook() {
